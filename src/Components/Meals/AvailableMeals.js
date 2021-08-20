@@ -1,5 +1,6 @@
 import Card from "../UI/Card";
 import UnitMeal from "./UnitMeal";
+import classes from './AvailableMeals.module.css'
 
 const DUMMY_MEALS = [
     {
@@ -33,7 +34,7 @@ const AvailableMeals = () => {
         return (<UnitMeal key={meal.id} meal={meal}/>);
     });
     return (
-        <section>
+        <section className={classes.meals}>
             <Card>
                 <ul>{mealsList}</ul>
             </Card>

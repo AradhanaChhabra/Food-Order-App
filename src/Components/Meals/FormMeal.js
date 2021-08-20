@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Input from "../UI/Input"
+import classes from "./FormMeal.module.css"
 
 export default function FormMeal(prop) {
 
@@ -22,7 +23,7 @@ export default function FormMeal(prop) {
 
     
     return (
-        <form onSubmit={submitHandler}>
+        <form className={classes.form} onSubmit={submitHandler}>
             <Input input={
                 {
                     ref:amountRef,

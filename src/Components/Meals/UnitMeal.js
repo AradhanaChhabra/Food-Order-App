@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import FormMeal from "./FormMeal"
+import classes from './UnitMeal.module.css';
 
 const UnitMeal = (prop) => {
     const cartCtx = useContext(CartContext);
@@ -18,11 +19,11 @@ const UnitMeal = (prop) => {
     }
 
     return (
-        <li>
+        <li className={classes.meal}>
             <div>
                 <h3>{prop.meal.name}</h3>
-                <div>{prop.meal.description}</div>
-                <div>{prop.meal.price}</div>
+                <div className={classes.description}>{prop.meal.description}</div>
+                <div className={classes.price}>{prop.meal.price}</div>
             </div>
             <div>
                 <FormMeal id={prop.meal.id} onAdd={addMealItem}></FormMeal>
