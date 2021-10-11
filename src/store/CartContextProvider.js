@@ -44,6 +44,9 @@ const CartContextReducer = (prevState, action) => {
         }
 
     }
+    if (action.identifier === "CLEAR") {
+        return defaultContextValue;
+    }
     return defaultContextValue;
 }
 
@@ -63,12 +66,17 @@ const CartContextProvider = (prop) => {
             id:id
         })
     }
+
+    const clearCartHandler = () => {
+        dispacthCart({ identifier: "CLEAR" });
+    }
     
     const contextValue = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItems:addItemsHandler ,
-        removeItems:removeItemsHandler
+        removeItems: removeItemsHandler,
+        clearCart:clearCartHandler
     }
 
     return (
