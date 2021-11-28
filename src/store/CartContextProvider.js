@@ -12,6 +12,7 @@ const CartContextReducer = (prevState, action) => {
         const existingItem = prevState.items[indexItem]
         // console.log(existingItem);
         let itemToAdd;
+        // if that item is present in the cart already
         if (existingItem) {
             itemToAdd = [...prevState.items];
             const addItem = action.item;
