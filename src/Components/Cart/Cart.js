@@ -8,7 +8,6 @@ import { useState } from "react/cjs/react.development";
 
 const Cart = (prop) => {
     const cartCtx = useContext(CartContext);
-    
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
     const [checkout, setCheckOut] = useState(false);
