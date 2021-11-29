@@ -24,9 +24,11 @@ export default function FormMeal(prop) {
     
     return (
         <form className={classes.form} onSubmit={submitHandler}>
-            <Input input={
+            <Input
+                ref={amountRef}
+                label='Amount'
+                input={
                 {
-                    ref:amountRef,
                     id: 'amount_'+ prop.id,
                     type:'number',
                     min:'1',

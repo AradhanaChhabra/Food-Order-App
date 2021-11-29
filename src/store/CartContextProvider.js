@@ -12,6 +12,7 @@ const CartContextReducer = (prevState, action) => {
         const existingItem = prevState.items[indexItem]
         // console.log(existingItem);
         let itemToAdd;
+        // if that item is present in the cart already
         if (existingItem) {
             itemToAdd = [...prevState.items];
             const addItem = action.item;
@@ -44,6 +45,9 @@ const CartContextReducer = (prevState, action) => {
         }
 
     }
+    if (action.identifier === "CLEAR") {
+        return defaultContextValue;
+    }
     return defaultContextValue;
 }
 
@@ -63,12 +67,17 @@ const CartContextProvider = (prop) => {
             id:id
         })
     }
+
+    const clearCartHandler = () => {
+        dispacthCart({ identifier: "CLEAR" });
+    }
     
     const contextValue = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItems:addItemsHandler ,
-        removeItems:removeItemsHandler
+        removeItems: removeItemsHandler,
+        clearCart:clearCartHandler
     }
 
     return (
